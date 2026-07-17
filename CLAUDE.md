@@ -113,3 +113,70 @@ Quando o usuário pedir skill nova:
 4. Se a skill precisar de arquivos de apoio (templates, exemplos),
    criar dentro da pasta da skill
 5. Seguir o fluxo da skill-creator nativa do Claude Code
+
+---
+
+# Ana Célia — Arquitetura Sacra (perfil: marca pessoal / solopreneur)
+
+## O que é este workspace
+
+Operação da marca pessoal e do negócio da Ana Célia, arquiteta especializada
+em **arquitetura sacra**. Aqui se produz a comunicação, se organizam os
+projetos e se conduz a captação de novas comunidades e paróquias.
+
+**Estrutura de pastas:**
+- `_memoria/` — quem é a Ana Célia, como ela se comunica, o que está em foco
+- `identidade/` — cores, fontes, logo e padrão visual da marca
+- `dados/` — arquivos a analisar / ler uma vez (inclui o design system e a copy da landing)
+- `marketing/` — conteúdo, SEO, campanhas (saída das skills)
+- `saidas/` — propostas, e-mails e documentos pontuais
+- `scripts/` — utilitários
+- `templates/` — modelos base do ÓrbitaOS
+
+## Quem é
+
+Ana Célia, arquiteta especializada em arquitetura sacra (+8 anos, +30 projetos).
+Projeta igrejas, capelas e santuários unindo liturgia, simbolismo e
+funcionalidade. Diferencial: tradição da fé + identidade única de cada comunidade.
+
+## O que entrega
+
+- Projeto litúrgico completo (altar, ambão, sacrário, batistério, assembleia)
+- Estudo de luz natural, acústica e arte sacra
+- Conformidade eclesial (diocese/comunidade) e acompanhamento de obra
+
+## Público
+
+Paróquias, comunidades religiosas, dioceses e lideranças eclesiais que vão
+construir, reformar ou restaurar templos.
+
+## Tom de voz
+
+Solene, reverente e elegante — sem rebuscamento nem apelo comercial. Ver
+`_memoria/preferencias.md`. Evitar informalidade, gírias e jargão de marketing.
+
+## Posicionamento
+
+Arquitetura a serviço da fé: espaços que elevam a alma, respeitam a tradição
+litúrgica e servem à comunidade por gerações. Autoridade comunicada com sobriedade.
+
+## Regras do sistema
+
+- Qualquer material visual consulta `identidade/design-guide.md` antes de ser criado.
+- Elemento de assinatura visual: o **arco** (topo de imagens de projeto).
+- Conteúdo novo em `marketing/conteudo/<tipo>-<tema>-<data>/`.
+- Cada proposta/projeto de cliente pode virar pasta própria em `saidas/`.
+- **Site multi-página** em `site/` (estático, sem libs). CSS/JS compartilhados: `site/assets/styles.css` e `site/assets/main.js`. Páginas: `index.html` (Home), `servicos.html`, `projetos.html` (com filtro de categorias), `blog.html` + posts `blog-*.html` (3 exemplos), `faq.html`, `contato.html` (form com chips de assunto → WhatsApp). Header/rodapé duplicados em cada página (nav com `aria-current`).
+- **Animações** (só transform/opacity, respeitam `prefers-reduced-motion`): reveal on scroll com stagger (`data-animate`/`data-stagger`), text reveal palavra a palavra (`.rv-split`), cortina em arco nas imagens, parallax (`data-parallax`), header reativo, contadores (`data-count`).
+- **Imagens:** fotos reais da Ana em `site/assets/ana-1..ana-5.jpg`; imagens de projeto/sacras são placeholders temáticos (Unsplash/Pexels) — trocar pelas reais mantendo os nomes. Deploy via `netlify.toml` / `vercel.json` (publish = `site/`); ver `site/DEPLOY.md`.
+- **Logo:** `site/assets/logo-dark.png` (fundos claros) e `logo-light.png` (fundos escuros); favicons gerados. Fonte original em `dados/logo.png`.
+
+## Ferramentas conectadas
+
+- [ ] Notion
+- [ ] Canva
+- [ ] Google Calendar
+- [ ] Meta Ads
+- [ ] Google Ads
+
+*(Marcar conforme os MCPs forem instalados.)*

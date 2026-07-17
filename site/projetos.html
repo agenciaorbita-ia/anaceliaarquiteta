@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfólio de arquitetura sacra de Ana Célia — igrejas, capelas, santuários e arte sacra que transformam a experiência de fé de comunidades e fiéis.">
+<meta name="theme-color" content="#F3EDE4">
+<title>Projetos — Ana Célia · Arquitetura Sacra</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script>document.documentElement.classList.add('has-anim');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="index.html" class="brand" aria-label="Ana Célia Andrade — Arquitetura, início">
+        <img src="assets/logo-dark.png" alt="Ana Célia Andrade — Arquitetura" class="brand-logo" width="90" height="72">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menu de navegação">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+      </button>
+      <div class="nav-menu" id="navMenu">
+        <ul>
+          <li><a class="nav-link" href="index.html">Início</a></li>
+          <li><a class="nav-link" href="servicos.html">Serviços</a></li>
+          <li><a class="nav-link" href="projetos.html" aria-current="page">Projetos</a></li>
+          <li><a class="nav-link" href="blog.html">Blog</a></li>
+          <li><a class="nav-link" href="faq.html">FAQ</a></li>
+          <li><a class="nav-link" href="contato.html">Contato</a></li>
+        </ul>
+        <a href="contato.html" class="btn btn-primary nav-cta">Solicitar reunião</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="page-hero-media">
+      <img src="assets/hero-nave.jpg" alt="Interior de igreja com nave de arcos em pedra clara" width="1200" height="800" data-parallax="40">
+    </div>
+    <div class="wrap">
+      <span class="eyebrow">Portfólio</span>
+      <h1 id="page-title" class="rv-split">Projetos que elevam a fé</h1>
+      <p>Espaços sagrados que transformam a experiência de fé de comunidades e fiéis.</p>
+      <nav class="breadcrumb" aria-label="Trilha de navegação"><a href="index.html">Início</a><span>/</span>Projetos</nav>
+    </div>
+  </section>
+
+  <section aria-labelledby="galeria-title">
+    <div class="wrap">
+      <div class="sec-head center" data-animate>
+        <span class="eyebrow center">Galeria</span>
+        <h2 id="galeria-title">Uma seleção de obras sacras</h2>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filtrar projetos por categoria" data-animate="fade">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">Todos</button>
+        <button class="filter-btn" data-filter="igreja" aria-pressed="false">Igrejas</button>
+        <button class="filter-btn" data-filter="capela" aria-pressed="false">Capelas</button>
+        <button class="filter-btn" data-filter="santuario" aria-pressed="false">Santuários</button>
+        <button class="filter-btn" data-filter="arte" aria-pressed="false">Arte Sacra</button>
+      </div>
+
+      <div class="projects-grid" data-stagger>
+        <article class="project-card" data-animate="fade" data-cat="igreja">
+          <div class="project-img"><img src="assets/hero-nave.jpg" alt="Nave de igreja em arcos de pedra com luz natural" loading="lazy" width="360" height="408"></div>
+          <div class="project-body"><span class="cat">Igreja</span><h3>Nave e Assembleia</h3><p>Espaço celebrativo em torno do altar, com luz e acústica a serviço da liturgia.</p></div>
+        </article>
+        <article class="project-card" data-animate="fade" data-cat="igreja">
+          <div class="project-img"><img src="assets/vitral-interior.jpg" alt="Interior de igreja com vitrais e luminárias" loading="lazy" width="360" height="408"></div>
+          <div class="project-body"><span class="cat">Igreja</span><h3>Vitrais da Nave</h3><p>Luz colorida que atravessa a nave e conduz o olhar à contemplação.</p></div>
+        </article>
+        <article class="project-card" data-animate="fade" data-cat="capela">
+          <div class="project-img"><img src="assets/ambao-biblia.jpg" alt="Bíblia sobre ambão de metal dourado" loading="lazy" width="360" height="408"></div>
+          <div class="project-body"><span class="cat">Capela</span><h3>Altar e Ambão</h3><p>Mobiliário litúrgico com sobriedade, dignidade e verdade dos materiais.</p></div>
+        </article>
+        <article class="project-card" data-animate="fade" data-cat="arte">
+          <div class="project-img"><img src="assets/arte-sacra.jpg" alt="Vitral com a imagem da crucificação" loading="lazy" width="360" height="408"></div>
+          <div class="project-body"><span class="cat">Arte Sacra</span><h3>Vitral da Crucificação</h3><p>Ornamento que narra a fé e desperta a devoção dos fiéis.</p></div>
+        </article>
+        <article class="project-card" data-animate="fade" data-cat="arte">
+          <div class="project-img"><img src="assets/devocao-terco.jpg" alt="Bíblia aberta com terço vermelho" loading="lazy" width="360" height="408"></div>
+          <div class="project-body"><span class="cat">Arte Sacra</span><h3>Devoção e Detalhe</h3><p>Os pequenos elementos que sustentam a experiência de oração.</p></div>
+        </article>
+        <article class="project-card" data-animate="fade" data-cat="santuario">
+          <div class="project-img" style="background:linear-gradient(160deg,var(--latte),var(--cafe) 65%,var(--cacau));display:flex;align-items:flex-end;justify-content:center;padding-bottom:22px">
+            <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--linho);position:relative;z-index:1;opacity:.9">imagem em breve</span>
+          </div>
+          <div class="project-body"><span class="cat">Santuário</span><h3>Santuário de Peregrinação</h3><p>Espaço de devoção e acolhida, pensado para servir por gerações.</p></div>
+        </article>
+      </div>
+
+      <p class="projects-note" data-animate="fade">Portfólio em atualização — em breve, os projetos completos de cada comunidade.</p>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-label="Convite ao contato">
+    <div class="wrap" data-stagger>
+      <h2 data-animate>O próximo templo pode ser o da sua comunidade</h2>
+      <p data-animate>Conte sobre a sua paróquia ou comunidade e vamos imaginar juntos o espaço sagrado que ela merece.</p>
+      <div class="actions" data-animate>
+        <a href="contato.html" class="btn btn-on-dark">Solicitar reunião</a>
+        <a href="https://wa.me/5533988086468" target="_blank" rel="noopener" class="btn btn-ghost-dark">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top" data-stagger>
+      <div class="footer-brand" data-animate>
+        <img src="assets/logo-light.png" alt="Ana Célia Andrade — Arquitetura" class="fb-logo" width="150" height="120">
+        <p>Espaços que elevam a alma, respeitam a tradição litúrgica e servem à comunidade por gerações.</p>
+      </div>
+      <div class="footer-col" data-animate>
+        <h4>Navegação</h4>
+        <ul><li><a href="index.html">Início</a></li><li><a href="servicos.html">Serviços</a></li><li><a href="projetos.html">Projetos</a></li><li><a href="blog.html">Blog</a></li></ul>
+      </div>
+      <div class="footer-col" data-animate>
+        <h4>Institucional</h4>
+        <ul><li><a href="faq.html">Perguntas Frequentes</a></li><li><a href="contato.html">Contato</a></li><li><a href="https://wa.me/5533988086468" target="_blank" rel="noopener">WhatsApp</a></li></ul>
+      </div>
+      <div class="footer-col" data-animate>
+        <h4>Redes</h4>
+        <div class="social">
+          <a href="https://www.instagram.com/anaceliandrade.arquiteta/" target="_blank" rel="noopener" aria-label="Instagram de Ana Célia (abre em nova aba)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://wa.me/5533988086468" target="_blank" rel="noopener" aria-label="WhatsApp de Ana Célia (abre em nova aba)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 00-8.5 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.4-5.6c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06a6.5 6.5 0 01-1.92-1.18 7.2 7.2 0 01-1.33-1.65c-.14-.24 0-.37.1-.49.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.5.58.19 1.1.16 1.52.1.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg></a>
+        </div>
+        <p style="margin-top:16px;color:rgba(243,237,228,.6);font-size:13.5px">WhatsApp<br>+55 33 98808-6468</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span data-year>2025</span> Ana Célia — Arquitetura Sacra. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

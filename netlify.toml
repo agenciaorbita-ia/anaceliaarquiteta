@@ -1,0 +1,12 @@
+# Deploy da landing page — Ana Célia Arquitetura Sacra
+# A pasta publicada é /site (HTML/CSS/JS único + /site/assets).
+
+[build]
+  publish = "site"
+  command = ""
+
+# Cache longo para as imagens e o logo (nunca mudam de nome)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
