@@ -116,13 +116,18 @@ Quando o usuário pedir skill nova:
 
 ---
 
-# Ana Célia — Arquitetura Sacra (perfil: marca pessoal / solopreneur)
+# Ana Célia Andrade — Arquitetura · Detalhamento (perfil: marca pessoal)
 
 ## O que é este workspace
 
-Operação da marca pessoal e do negócio da Ana Célia, arquiteta especializada
-em **arquitetura sacra**. Aqui se produz a comunicação, se organizam os
-projetos e se conduz a captação de novas comunidades e paróquias.
+Operação da marca pessoal da Ana Célia Andrade, arquiteta que oferece
+**terceirização de detalhamento de projetos para arquitetos e escritórios**,
+com projetos religiosos como nicho de paixão. Aqui se produz a comunicação,
+se organizam os projetos e se conduz a captação de clientes.
+
+> **Reposicionado em 18/07/2026** a partir do feedback direto da Ana. O
+> posicionamento antigo ("especialista em arquitetura sacra") foi vetado por
+> ela — ver `_memoria/empresa.md`, seção "O que NÃO afirmar".
 
 **Estrutura de pastas:**
 - `_memoria/` — quem é a Ana Célia, como ela se comunica, o que está em foco
@@ -135,30 +140,37 @@ projetos e se conduz a captação de novas comunidades e paróquias.
 
 ## Quem é
 
-Ana Célia, arquiteta especializada em arquitetura sacra (+8 anos, +30 projetos).
-Projeta igrejas, capelas e santuários unindo liturgia, simbolismo e
-funcionalidade. Diferencial: tradição da fé + identidade única de cada comunidade.
+Ana Célia Andrade, arquiteta. Trabalha no escritório da Thaynara (chefe); a
+marca/site é a frente pessoal dela (não mencionar o vínculo no site). Pessoa
+leve e descontraída, católica, apaixonada por história — e muito boa no que
+faz. Modelo de trabalho que admira: @blessadetalha (também @ingriddetalha e
+@kah.detalharq).
 
 ## O que entrega
 
-- Projeto litúrgico completo (altar, ambão, sacrário, batistério, assembleia)
-- Estudo de luz natural, acústica e arte sacra
-- Conformidade eclesial (diocese/comunidade) e acompanhamento de obra
+- **Principal:** detalhamento executivo terceirizado (plantas, cortes, elevações),
+  marcenaria e mobiliário sob medida, marmoraria, caderno de detalhes,
+  compatibilização — remoto, no padrão gráfico do escritório contratante
+- **Nicho de paixão:** capelas, mobiliário litúrgico (altar, ambão, sacrário) e
+  adequação litúrgica de ambientes já construídos
 
 ## Público
 
-Paróquias, comunidades religiosas, dioceses e lideranças eclesiais que vão
-construir, reformar ou restaurar templos.
+Primário: arquitetos e escritórios que precisam terceirizar o executivo.
+Secundário: comunidades e paróquias com projetos religiosos de menor porte.
 
 ## Tom de voz
 
-Solene, reverente e elegante — sem rebuscamento nem apelo comercial. Ver
-`_memoria/preferencias.md`. Evitar informalidade, gírias e jargão de marketing.
+Leve, caloroso e profissional — 1ª pessoa do singular, sem pose corporativa.
+Ver `_memoria/preferencias.md`. **Nunca:** "especialista em arquitetura sacra",
+números de prova social inventados, voz no plural ("projetamos"), imagem de
+"arquiteta glamurosa/empresária".
 
 ## Posicionamento
 
-Arquitetura a serviço da fé: espaços que elevam a alma, respeitam a tradição
-litúrgica e servem à comunidade por gerações. Autoridade comunicada com sobriedade.
+O detalhe como forma de cuidado: projetos que ganham vida no desenho bem
+resolvido. Arquitetura sacra plena é sonho de longo prazo — cultivada via
+blog/conteúdo, nunca vendida como especialidade.
 
 ## Regras do sistema
 
@@ -166,10 +178,15 @@ litúrgica e servem à comunidade por gerações. Autoridade comunicada com sobr
 - Elemento de assinatura visual: o **arco** (topo de imagens de projeto).
 - Conteúdo novo em `marketing/conteudo/<tipo>-<tema>-<data>/`.
 - Cada proposta/projeto de cliente pode virar pasta própria em `saidas/`.
-- **Site multi-página** em `site/` (estático, sem libs). CSS/JS compartilhados: `site/assets/styles.css` e `site/assets/main.js`. Páginas: `index.html` (Home), `servicos.html`, `projetos.html` (com filtro de categorias), `blog.html` + posts `blog-*.html` (3 exemplos), `faq.html`, `contato.html` (form com chips de assunto → WhatsApp). Header/rodapé duplicados em cada página (nav com `aria-current`).
-- **Animações** (só transform/opacity, respeitam `prefers-reduced-motion`): reveal on scroll com stagger (`data-animate`/`data-stagger`), text reveal palavra a palavra (`.rv-split`), cortina em arco nas imagens, parallax (`data-parallax`), header reativo, contadores (`data-count`).
-- **Imagens:** fotos reais da Ana em `site/assets/ana-1..ana-5.jpg`; imagens de projeto/sacras são placeholders temáticos (Unsplash/Pexels) — trocar pelas reais mantendo os nomes. Deploy via `netlify.toml` / `vercel.json` (publish = `site/`); ver `site/DEPLOY.md`.
-- **Logo:** `site/assets/logo-dark.png` (fundos claros) e `logo-light.png` (fundos escuros); favicons gerados. Fonte original em `dados/logo.png`.
+- **Site multi-página** em `site/` (estático, sem libs), marca "Ana Célia Andrade — Arquitetura · Detalhamento". CSS/JS compartilhados: `site/assets/styles.css` e `site/assets/main.js`. Páginas: `index.html` (Home), `servicos.html`, `projetos.html` (filtro: Detalhamento · Capelas · Mobiliário litúrgico · Adequação litúrgica), `blog.html` + posts `blog-*.html` (3 exemplos), `faq.html`, `contato.html` (form com chips de assunto → WhatsApp). Header/rodapé duplicados em cada página (nav com `aria-current`); CTA padrão: "Solicitar orçamento".
+- **Site redesenhado (v2, mescla claro/escuro + acento dourado `#D9A868` — ref. `dados/x.png`).** Tokens: `--expresso-deep`, `--dourado`, `--dourado-soft`.
+  - **Home:** hero full-bleed → `.dark-block` unindo Apresentação (`.intro-*` com photo-swap + `.intro-stats`) e "Por que" (`.why-*` colunas numeradas douradas) → `.bento` (grid assimétrico com fotos/blocos de cor + spotlight) → `.approach` (citação + 3 cards com imagem sacra) → `.gallery-sec` (marquee arrastável) → `.cta-card` (card escuro com foto).
+  - **Páginas internas (também v2):** `.page-hero` com eyebrow/glow dourado; `.cta-band` agora escuro profundo com glow + strip dourada no topo; `.reason`/`.step`/`.faq`/`.project-card`/`.post-meta`/artigo com acentos dourados. **servicos**: "Por que" em `.dark-block`+`.why-grid`, "Entregas" em `.bento`. **contato**: coluna de info em `.contact-panel` (escuro) ao lado do form claro. Refinamentos no fim do `styles.css` (bloco "REDESIGN v2 — refinamentos das páginas internas").
+  - **Fotos reais da Ana** aplicadas: home (apresentação/CTA), servicos (método), contato (bio).
+- **Animações** (só transform/opacity, respeitam `prefers-reduced-motion`): reveal on scroll com stagger (`data-animate`/`data-stagger`), text reveal palavra a palavra (`.rv-split`), rotator de palavras na hero (`data-rotator`), pílula deslizante na nav (`.nav-pill`), photo-swap (`data-photo-main`), marquee arrastável (`data-marquee`), spotlight no bento (`data-spotlight`), cortina em arco nas imagens, parallax (`data-parallax`), header reativo.
+- **Imagens:** fotos reais da Ana em `site/assets/ana-escritorio-1..3.jpg` e `ana-pedra-1..2.jpg` (originais em `dados/foto-anacelia (1..5).jpeg`; as antigas `ana-1..5.jpg` seguem no repo, sem uso na home). Imagens de projeto/detalhamento são placeholders temáticos (`marcenaria.jpg`, `prancheta.jpg`, `interior-capela-2.jpg`, `detalhe-arco.jpg`, `hero-nave.jpg`, `vitral-interior.jpg`, `ambao-biblia.jpg`, `plantas.jpg`) — trocar pelas reais mantendo os nomes. Deploy via `netlify.toml` / `vercel.json` (publish = `site/`); ver `site/DEPLOY.md`.
+- **Logo "Portal"** (aprovada 18/07/2026): três arcos concêntricos + wordmark caixa alta. No site: lockup em HTML/CSS+SVG inline (`.brand-mark`, variantes `.vertical`/`.on-dark`); favicon em `site/assets/favicon.svg`. Arquivos oficiais com fontes embutidas: `identidade/logo-portal.svg` (claro) e `logo-portal-dark.svg` (escuro). Regras completas no `design-guide.md`. PNGs antigos do monograma aposentados (permanecem em `site/assets/`).
+- **Números da home são placeholder** (comentário `NÚMEROS PLACEHOLDER` em `site/index.html`) — substituir pelos reais quando a Ana informar; não citar como fato em outros materiais.
 
 ## Ferramentas conectadas
 

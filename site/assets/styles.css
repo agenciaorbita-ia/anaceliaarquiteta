@@ -12,6 +12,10 @@
   --cafe-claro:#A9876A; --cafe:#8B6B4E;
   /* Contraste / texto */
   --cacau:#5E4432; --expresso:#2E2118; --texto-suave:#6F5942;
+  /* Redesign v2 — bloco escuro + acento dourado (ref. x.png) */
+  --expresso-deep:#211609; --expresso-deep-2:#2C1E12;
+  --dourado:#D9A868; --dourado-soft:#E7C79A;
+  --strip:rgba(29,19,10,.72);
 
   /* Semânticos */
   --bg:var(--linho); --bg-alt:var(--areia); --surface:var(--marfim);
@@ -79,12 +83,34 @@ img{max-width:100%;display:block}
 .brand{display:flex;align-items:center;padding:8px 0}
 .brand .brand-logo{height:58px;width:auto;display:block;transition:height .35s ease}
 .site-header.scrolled .brand-logo{height:46px}
+/* Marca "Portal" — arcos concêntricos + wordmark (Opção 3 aprovada) */
+.brand-mark{display:flex;align-items:center;gap:13px;line-height:1}
+.brand-mark .bm-arcs{width:36px;height:auto;flex:none;color:var(--cacau);transition:width .35s ease}
+.brand-mark .bm-txt{display:flex;flex-direction:column}
+.brand-mark .bm-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--expresso);white-space:nowrap;transition:font-size .35s ease}
+.brand-mark .bm-sub{font-family:'Mulish',sans-serif;font-weight:600;font-size:8.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--cafe);margin-top:5px;white-space:nowrap}
+.site-header.scrolled .brand-mark .bm-arcs{width:30px}
+.site-header.scrolled .brand-mark .bm-name{font-size:15px}
+.brand-mark.on-dark .bm-arcs{color:var(--cafe-claro)}
+.brand-mark.on-dark .bm-name{color:var(--linho)}
+.brand-mark.on-dark .bm-sub{color:var(--cafe-claro)}
+.brand-mark.vertical{flex-direction:column;align-items:flex-start;gap:12px}
+.footer-brand .brand-mark .bm-arcs{width:44px}
+.footer-brand .brand-mark .bm-name{font-size:19px}
+.footer-brand .brand-mark .bm-sub{font-size:9.5px}
+@media(max-width:420px){
+  .brand-mark .bm-sub{display:none}
+  .brand-mark .bm-name{font-size:14.5px}
+}
 .nav-menu{display:flex;align-items:center;gap:8px}
-.nav-menu ul{display:flex;align-items:center;gap:2px;list-style:none}
-.nav-menu a.nav-link{position:relative;display:inline-block;font-weight:500;font-size:15px;color:var(--text-muted);padding:10px 14px;border-radius:var(--r-sm);transition:color .18s ease,background .18s ease}
-.nav-menu a.nav-link:hover{color:var(--cacau);background:var(--areia)}
+.nav-menu ul{position:relative;display:flex;align-items:center;gap:2px;list-style:none}
+.nav-menu a.nav-link{position:relative;z-index:1;display:inline-block;font-weight:500;font-size:15px;color:var(--text-muted);padding:10px 14px;border-radius:var(--r-sm);transition:color .22s ease}
+.nav-menu a.nav-link:hover,.nav-menu a.nav-link:focus-visible{color:var(--cacau)}
 .nav-menu a.nav-link[aria-current="page"]{color:var(--cacau);font-weight:600}
-.nav-menu a.nav-link[aria-current="page"]::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:1.5px;background:var(--primary-soft)}
+/* Pílula deslizante (inspirada no vercel-navbar / ln-dev7) */
+.nav-pill{position:absolute;top:0;left:0;z-index:0;border-radius:var(--r-sm);background:var(--areia);opacity:0;pointer-events:none;will-change:transform,width;transition:transform .42s cubic-bezier(.22,1,.36,1),width .42s cubic-bezier(.22,1,.36,1),height .42s cubic-bezier(.22,1,.36,1),opacity .3s ease}
+.nav-pill.is-on{opacity:1}
+.nav-pill.no-anim{transition:none}
 .nav-cta{margin-left:10px}
 .nav-toggle{display:none;align-items:center;justify-content:center;width:46px;height:46px;background:transparent;border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;color:var(--cacau)}
 .nav-toggle svg{width:22px;height:22px}
@@ -102,6 +128,12 @@ img{max-width:100%;display:block}
 .hero .eyebrow::before,.hero .eyebrow::after{background:var(--cafe-claro)}
 .hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(46px,8vw,86px);line-height:1.0;letter-spacing:-.01em;color:#FBF6EE;margin:0 auto 24px;max-width:16ch;text-shadow:0 2px 24px rgba(20,12,6,.4)}
 .hero h1 em{font-style:italic;font-weight:500;color:#EBC9A3;display:block}
+/* Palavra rotativa da hero (inspirada no animated-hero / tommyjepsen) */
+.hero-title .ht-lead{display:block}
+.word-rotator{position:relative;display:block;height:1.06em;margin-top:.05em;overflow:visible}
+.word-rotator .wr-word{position:absolute;left:0;right:0;top:0;font-style:italic;font-weight:500;color:#EBC9A3;white-space:nowrap;text-align:center;opacity:0;transform:translateY(.55em);filter:blur(7px);transition:transform .7s cubic-bezier(.22,1,.36,1),opacity .55s ease,filter .55s ease}
+.word-rotator .wr-word.is-active{opacity:1;transform:translateY(0);filter:blur(0)}
+.word-rotator .wr-word.is-leaving{opacity:0;transform:translateY(-.55em);filter:blur(7px)}
 .hero p.subtitle{max-width:620px;margin:0 auto 36px;color:#F0E7DA;font-size:clamp(17px,2.2vw,20px);font-weight:400;text-shadow:0 1px 12px rgba(20,12,6,.45)}
 .hero .actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
 .hero-scroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:1;color:#EAD9C3;font-size:11px;letter-spacing:.22em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.9}
@@ -296,7 +328,7 @@ section{padding:var(--s-24) 0}
 .cta-band .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
 /* ---- Rodapé ---- */
-.site-footer{background:var(--expresso);color:var(--linho)}
+.site-footer{background:var(--expresso);color:var(--linho);border-top:3px solid var(--dourado)}
 .footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;padding:var(--s-16) 0 var(--s-12)}
 .footer-brand .fb-logo{height:78px;width:auto;display:block;margin-bottom:4px}
 .footer-brand p{color:rgba(243,237,228,.66);font-size:14.5px;max-width:34ch;margin-top:16px}
@@ -322,7 +354,7 @@ html.has-anim .rv-split{opacity:0}
 html.has-anim .rv-split.rv-armed{opacity:1}
 .rv-word{display:inline-block;opacity:0;transform:translateY(.85em);filter:blur(14px);transition:opacity .72s var(--ease),transform .72s var(--ease),filter .72s var(--ease);transition-delay:calc(var(--base,0ms) + var(--wi,0)*72ms);will-change:opacity,transform,filter}
 .rv-split.rv-in .rv-word{opacity:1;transform:none;filter:blur(0)}
-.hero h1.rv-split,.page-hero h1.rv-split{--base:200ms}
+.hero h1.rv-split,.page-hero h1.rv-split,.hero .ht-lead.rv-split{--base:200ms}
 /* Image mask reveal — cortina em arco */
 .project-img::before,.about-figure .frame::before,.post-thumb::before{content:"";position:absolute;inset:0;z-index:3;background:var(--areia);transform:translateY(0);transition:transform .8s var(--ease);transition-delay:var(--d,0ms)}
 .post-thumb{position:relative}
@@ -347,7 +379,8 @@ html.has-anim .rv-split.rv-armed{opacity:1}
   .nav-menu.open{transform:translateY(0);opacity:1;visibility:visible}
   .nav-menu ul{flex-direction:column;align-items:stretch;gap:2px;width:100%}
   .nav-menu a.nav-link{padding:14px 12px;font-size:16px}
-  .nav-menu a.nav-link[aria-current="page"]::after{display:none}
+  .nav-menu a.nav-link[aria-current="page"]{background:var(--areia);border-radius:var(--r-sm)}
+  .nav-pill{display:none}
   .nav-cta{margin:12px 0 0}
   .nav-cta .btn{width:100%}
   .reasons-grid{grid-template-columns:1fr}
@@ -387,3 +420,223 @@ html.has-anim .rv-split.rv-armed{opacity:1}
   html.has-anim .rv-split{opacity:1 !important}
   .project-img::before,.about-figure .frame::before,.post-thumb::before{display:none !important}
 }
+
+/* ===================================================================
+   REDESIGN v2 — Home (mescla claro/escuro, acento dourado)
+   Classes dedicadas da home; não afetam páginas internas.
+   =================================================================== */
+
+/* ---- 1 · Hero (full-bleed) ---- */
+.hero{min-height:100svh}
+.hero .subtitle-sub{display:block;margin:14px auto 0;max-width:56ch;color:#E7D9C6;font-size:14.5px;letter-spacing:.02em;opacity:.92}
+
+/* ---- 2 · Bloco escuro contínuo (Apresentação + Por que) ---- */
+.dark-block{position:relative;background:var(--expresso-deep);color:#F0E6D8;overflow:hidden}
+.dark-block::before{content:"";position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:120%;height:70%;background:radial-gradient(ellipse at center,rgba(217,168,104,.16),transparent 62%);pointer-events:none;z-index:0}
+.dark-block > .wrap{position:relative;z-index:1}
+
+/* 2a · Apresentação com photo-swap */
+.intro-grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:var(--s-16);align-items:center;padding:var(--s-24) 0 var(--s-16)}
+.intro-figure{position:relative}
+.intro-photo{position:relative;border-radius:260px 260px 20px 20px;overflow:hidden;aspect-ratio:4/5;border:1px solid rgba(217,168,104,.35);box-shadow:0 30px 70px rgba(0,0,0,.4);background:var(--expresso-deep-2)}
+.intro-photo .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 32%;opacity:0;transition:opacity .6s var(--ease),transform 6s ease;transform:scale(1.04)}
+.intro-photo .ph.is-active{opacity:1;transform:scale(1)}
+.intro-figure::after{content:"";position:absolute;right:-16px;bottom:34px;width:96px;height:96px;border:1.5px solid var(--dourado);border-radius:120px 120px 0 0;z-index:-1}
+.intro-thumbs{display:flex;gap:12px;margin-top:20px;justify-content:center}
+.intro-thumbs button{width:60px;height:60px;border-radius:50%;overflow:hidden;border:2px solid transparent;padding:0;cursor:pointer;background:none;transition:border-color .25s ease,transform .25s ease;opacity:.7}
+.intro-thumbs button img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.intro-thumbs button:hover{transform:translateY(-3px);opacity:1}
+.intro-thumbs button.is-active{border-color:var(--dourado);opacity:1}
+.intro-body .eyebrow{color:var(--dourado)}
+.intro-body .eyebrow::before,.intro-body .eyebrow::after{background:var(--dourado)}
+.intro-body h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(32px,4.2vw,46px);color:#FBF4E9;line-height:1.05;margin:16px 0 22px}
+.intro-body p{color:#DCCDB9;font-size:17px;line-height:1.7;margin-bottom:18px;max-width:56ch}
+.intro-stats{display:flex;gap:40px;margin:4px 0 26px;flex-wrap:wrap}
+.intro-stats .is-item{display:flex;flex-direction:column;gap:3px}
+.intro-stats .is-num{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:34px;line-height:1;color:var(--dourado)}
+.intro-stats .is-label{font-size:12.5px;letter-spacing:.02em;color:#CDBEA9}
+.intro-body .btn{margin-top:0}
+
+/* 2b · Por que trabalhar comigo — colunas numeradas douradas */
+.why{padding:var(--s-12) 0 var(--s-24);border-top:1px solid rgba(217,168,104,.16)}
+.why-head{text-align:center;max-width:640px;margin:0 auto var(--s-12)}
+.why-head .eyebrow{color:var(--dourado);justify-content:center}
+.why-head .eyebrow::before,.why-head .eyebrow::after{background:var(--dourado)}
+.why-head h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(28px,3.6vw,40px);color:#FBF4E9;line-height:1.1;margin-top:12px}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:34px}
+.why-col{position:relative;padding-top:22px}
+.why-col::before{content:"";position:absolute;top:0;left:0;width:46px;height:2px;background:var(--dourado)}
+.why-col .wc-num{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:var(--dourado);display:block;margin-bottom:10px}
+.why-col h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:#FBF4E9;line-height:1.15;margin-bottom:10px}
+.why-col p{color:#CDBEA9;font-size:14.5px;line-height:1.6}
+
+/* ---- 3 · O que entrego — bento grid ---- */
+.bento-sec{padding:var(--s-24) 0}
+.bento-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:var(--s-12)}
+.bento-head h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(30px,4vw,44px);color:var(--cacau);line-height:1.05}
+.bento-head p{color:var(--text-muted);max-width:42ch;font-size:16px}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:16px}
+.bento-cell{position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);padding:26px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.bento-cell:hover{transform:translateY(-4px);box-shadow:var(--sh-lg)}
+.bento-cell.wide{grid-column:span 2}
+.bento-cell.tall{grid-row:span 2}
+.bento-cell .bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.bento-cell:hover .bg{transform:scale(1.06)}
+.bento-cell.has-photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(33,22,9,.86) 8%,rgba(33,22,9,.34) 55%,rgba(33,22,9,.12))}
+.bento-cell.has-photo{color:var(--linho)}
+.bento-cell.has-photo h3{color:#FBF4E9}
+.bento-cell.has-photo p{color:rgba(243,237,228,.82)}
+.bento-cell.solid{background:var(--surface)}
+.bento-cell.solid-cacau{background:linear-gradient(150deg,var(--cafe),var(--cacau));color:var(--linho)}
+.bento-cell.solid-cacau h3{color:#FBF4E9}
+.bento-cell.solid-cacau p{color:rgba(243,237,228,.8)}
+.bento-cell.solid-gold{background:linear-gradient(150deg,var(--dourado-soft),var(--dourado));color:var(--expresso)}
+.bento-cell .spot{position:absolute;inset:0;z-index:-1;opacity:0;background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),rgba(217,168,104,.25),transparent 70%);transition:opacity .3s ease}
+.bento-cell:hover .spot{opacity:1}
+.bento-cell h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;color:var(--cacau);line-height:1.12;margin-bottom:6px}
+.bento-cell p{font-size:14px;line-height:1.5;color:var(--text-muted)}
+.bento-cell .bc-tag{position:absolute;top:20px;left:26px;font-family:'Mulish';font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+
+/* ---- 4 · Meu jeito de trabalhar — citação + cards ---- */
+.approach{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.approach .wrap{padding:var(--s-16) 32px}
+.approach-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:var(--s-16);align-items:stretch}
+.approach-figure{position:relative;min-height:340px;border-radius:220px 220px 16px 16px;overflow:hidden;border:1px solid var(--border-strong);box-shadow:var(--sh-lg);background:var(--latte)}
+.approach-figure::after{content:"";position:absolute;left:16px;top:16px;right:16px;bottom:16px;border:1px solid rgba(217,168,104,.55);border-radius:200px 200px 8px 8px;pointer-events:none;z-index:2}
+.approach-figure img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.approach-body{display:flex;flex-direction:column;justify-content:center;gap:28px}
+.approach-quote .eyebrow{margin-bottom:16px}
+.approach-quote .qmark{font-family:'Cormorant Garamond',serif;font-size:66px;line-height:.2;color:var(--dourado);display:block;height:30px}
+.approach-quote blockquote{font-family:'Cormorant Garamond',serif;font-weight:500;font-style:italic;font-size:clamp(24px,3.3vw,38px);line-height:1.22;color:var(--cacau);max-width:24ch;margin:0 0 16px}
+.approach-quote cite{display:block;font-family:'Mulish';font-style:normal;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--primary)}
+.approach-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ap-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:22px 20px;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s ease}
+.ap-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:var(--border-strong)}
+.ap-card .ic{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;background:linear-gradient(150deg,var(--dourado-soft),var(--dourado));color:var(--expresso);margin-bottom:14px}
+.ap-card .ic svg{width:22px;height:22px}
+.ap-card h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px;color:var(--cacau);margin-bottom:6px}
+.ap-card p{font-size:13.5px;line-height:1.55;color:var(--text-muted)}
+
+/* ---- 5 · Projetos — galeria em marquee ---- */
+.gallery-sec{padding:var(--s-24) 0 var(--s-12);overflow:hidden}
+.gallery-head{max-width:var(--maxw);margin:0 auto var(--s-12);padding:0 32px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.gallery-head h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(30px,4.4vw,48px);color:var(--cacau);line-height:1.02}
+.gallery-head p{color:var(--text-muted);max-width:38ch;font-size:16px}
+.marquee{position:relative;display:flex;gap:20px;width:max-content;will-change:transform}
+.marquee.row2{margin-top:20px}
+.mq-viewport{cursor:grab}
+.mq-viewport.dragging{cursor:grabbing}
+.mq-item{position:relative;width:320px;height:230px;border-radius:var(--r-lg);overflow:hidden;flex:none;border:1px solid var(--border)}
+.mq-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.mq-item:hover img{transform:scale(1.06)}
+.mq-item .cat{position:absolute;top:14px;left:14px;background:rgba(33,22,9,.72);color:var(--dourado-soft);font-family:'Mulish';font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+.mq-item .mq-title{position:absolute;left:16px;bottom:14px;right:16px;color:#FBF4E9;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.mq-item.has-grad::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(33,22,9,.7),transparent 55%);z-index:0}
+.mq-item.has-grad .cat,.mq-item.has-grad .mq-title{z-index:1}
+.mq-block{width:210px;height:230px;border-radius:var(--r-lg);flex:none;display:flex;align-items:flex-end;padding:22px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.15}
+.mq-block.gold{background:linear-gradient(150deg,var(--dourado-soft),var(--dourado));color:var(--expresso)}
+.mq-block.sand{background:var(--areia);color:var(--cacau)}
+.mq-block.cacau{background:linear-gradient(150deg,var(--cafe),var(--cacau));color:var(--linho)}
+.gallery-foot{text-align:center;margin-top:var(--s-8)}
+
+/* ---- 6 · CTA final — card com foto ---- */
+.cta-showcase{padding:var(--s-8) 0 var(--s-24)}
+.cta-card{position:relative;display:grid;grid-template-columns:1.1fr .9fr;background:var(--expresso-deep);border:1px solid rgba(217,168,104,.4);border-radius:var(--r-xl);overflow:hidden;box-shadow:0 30px 70px rgba(20,12,6,.28)}
+.cta-card::before{content:"";position:absolute;top:-30%;left:-10%;width:60%;height:120%;background:radial-gradient(ellipse,rgba(217,168,104,.18),transparent 65%);pointer-events:none}
+.cta-card .cc-body{position:relative;z-index:1;padding:clamp(32px,5vw,60px)}
+.cta-card .eyebrow{color:var(--dourado)}
+.cta-card .eyebrow::before{background:var(--dourado)}
+.cta-card h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(28px,3.8vw,44px);color:#FBF4E9;line-height:1.08;margin:16px 0 16px}
+.cta-card p{color:#DCCDB9;font-size:16.5px;line-height:1.65;max-width:44ch;margin-bottom:28px}
+.cta-card .actions{display:flex;gap:14px;flex-wrap:wrap}
+.cta-card .cc-media{position:relative;min-height:340px}
+.cta-card .cc-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.cta-card .cc-media::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,var(--expresso-deep) 2%,transparent 40%)}
+
+/* ---- Responsivo do redesign ---- */
+@media(max-width:900px){
+  .intro-grid{grid-template-columns:1fr;gap:var(--s-12);max-width:560px;margin:0 auto}
+  .intro-figure{order:-1;max-width:400px;margin:0 auto}
+  .why-grid{grid-template-columns:repeat(2,1fr);gap:28px}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .bento-cell.wide{grid-column:span 2}
+  .approach-grid{grid-template-columns:1fr;gap:var(--s-8);max-width:540px;margin:0 auto}
+  .approach-figure{order:-1;min-height:280px}
+  .cta-card{grid-template-columns:1fr}
+  .cta-card .cc-media{min-height:260px;order:-1}
+  .cta-card .cc-media::after{background:linear-gradient(0deg,var(--expresso-deep) 2%,transparent 46%)}
+}
+@media(max-width:560px){
+  .why-grid{grid-template-columns:1fr;gap:24px;max-width:360px;margin:0 auto}
+  .bento{grid-template-columns:1fr;grid-auto-rows:170px}
+  .bento-cell.wide,.bento-cell.tall{grid-column:auto;grid-row:auto}
+  .gallery-head,.bento-head{flex-direction:column;align-items:flex-start}
+  .mq-item{width:260px;height:190px}
+  .mq-block{width:150px;height:190px;font-size:18px}
+  .intro-stats{gap:28px}
+  .approach-cards{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  .marquee{transform:none !important;animation:none !important}
+  .mq-viewport{overflow-x:auto}
+  .intro-photo .ph{transition:opacity .3s ease}
+}
+
+/* ===================================================================
+   REDESIGN v2 — refinamentos das páginas internas (dourado + mescla)
+   Vêm por último para vencer empates de cascata sobre as classes base.
+   =================================================================== */
+
+/* page-hero: acento dourado + glow quente no overlay */
+.page-hero .eyebrow{color:var(--dourado-soft)}
+.page-hero .eyebrow::before,.page-hero .eyebrow::after{background:var(--dourado)}
+.page-hero-media::after{background:linear-gradient(180deg,rgba(33,22,9,.56),rgba(33,22,9,.74)),radial-gradient(120% 82% at 50% 24%,rgba(217,168,104,.16),transparent 64%)}
+
+/* reason cards (servicos): acento e ícone dourados */
+.reason::before{background:var(--dourado)}
+.reason .num{color:var(--dourado)}
+.reason .icon{background:linear-gradient(150deg,var(--dourado-soft),var(--dourado));color:var(--expresso)}
+
+/* passos do método: número dourado no hover */
+.step:hover .st-num{background:var(--dourado);color:var(--expresso);border-color:var(--dourado)}
+
+/* project-card: categoria em pílula, dourada no hover */
+.project-body .cat{display:inline-block;background:var(--areia);color:var(--cacau);padding:5px 12px;border-radius:999px;font-size:10.5px;letter-spacing:.12em;margin-bottom:6px;transition:background .25s ease,color .25s ease}
+.project-card:hover .project-body .cat{background:linear-gradient(150deg,var(--dourado-soft),var(--dourado))}
+
+/* blog: meta com filete dourado */
+.post-meta{color:var(--cafe)}
+.post-card .post-meta::before{content:"";display:inline-block;width:16px;height:1.5px;background:var(--dourado);vertical-align:middle;margin-right:9px}
+
+/* artigo: citação com barra dourada + drop rule no h2 */
+.article-body blockquote{border-left-color:var(--dourado);color:var(--cafe)}
+.article-body h2{position:relative;padding-top:14px}
+.article-body h2::before{content:"";position:absolute;top:0;left:0;width:40px;height:2px;background:var(--dourado)}
+
+/* FAQ: ícone dourado + estado ativo destacado */
+.faq-icon{color:var(--dourado)}
+.faq-item{transition:background .25s ease;padding:0 14px;margin:0 -14px;border-radius:var(--r-sm)}
+.faq-q[aria-expanded="true"]{color:var(--cacau)}
+.faq-item:has(.faq-q[aria-expanded="true"]){background:var(--marfim)}
+
+/* CTA-band (páginas internas): escuro profundo + brilho e strip dourada */
+.cta-band{position:relative;background:var(--expresso-deep);overflow:hidden}
+.cta-band::before{content:"";position:absolute;top:-42%;left:50%;transform:translateX(-50%);width:82%;height:120%;background:radial-gradient(ellipse at center,rgba(217,168,104,.17),transparent 62%);pointer-events:none}
+.cta-band::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--dourado)}
+.cta-band .wrap{position:relative;z-index:1}
+.cta-band h2{color:#FBF4E9}
+
+/* Painel de contato escuro (info à esquerda) */
+.contact-panel{background:var(--expresso-deep);color:#F0E6D8;border-radius:var(--r-xl);padding:clamp(28px,4vw,44px);position:relative;overflow:hidden}
+.contact-panel::before{content:"";position:absolute;top:-30%;left:-10%;width:70%;height:120%;background:radial-gradient(ellipse,rgba(217,168,104,.16),transparent 64%);pointer-events:none}
+.contact-panel > *{position:relative;z-index:1}
+.contact-panel .eyebrow{color:var(--dourado)}
+.contact-panel .eyebrow::before,.contact-panel .eyebrow::after{background:var(--dourado)}
+.contact-panel h2{color:#FBF4E9}
+.contact-panel .contact-copy p{color:#DCCDB9}
+.contact-panel .contact-list li{color:#EADDCB}
+.contact-panel .contact-list .ci{background:rgba(217,168,104,.16);color:var(--dourado-soft)}
+.contact-panel .contact-list li a:hover .ci{background:var(--dourado);color:var(--expresso)}
+.contact-panel .contact-list li a:hover b{color:#fff}
+.contact-panel .contact-list b{color:#FBF4E9}
+.contact-panel .contact-list span{color:#C2AD92}

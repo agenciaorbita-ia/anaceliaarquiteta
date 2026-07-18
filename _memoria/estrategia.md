@@ -1,25 +1,29 @@
 # Estratégia
 
 > O que importa agora. Prioridades, metas, prazos.
-> O Claude usa essas informações para decidir o que sugerir primeiro e o que pode esperar.
+> Atualizado em 18/07/2026 — reposicionamento a partir do feedback da Ana Célia.
 
 ## Fase
 
-Estruturação da presença digital. Design system e textos da landing já prontos (em `dados/`); próximo passo é transformá-los na landing page publicada e organizar a operação de conteúdo.
+Reposicionamento executado: o site deixou de vender "especialista em arquitetura sacra" e passou a vender **terceirização de detalhamento para arquitetos e escritórios**, com projetos religiosos (capelas, mobiliário litúrgico, adequação litúrgica) como nicho de paixão. Modelo de negócio de referência: @blessadetalha.
 
 ## Prioridade principal
 
-Colocar no ar a landing page de captação (Arquitetura Sacra) usando o design system e a copy já definidos — página com foco em autoridade, portfólio de projetos e conversão para "Solicitar reunião".
+1. **Colocar o site reposicionado no ar** (deploy Netlify/Vercel, publish = `site/`).
+2. **Coletar o material real da Ana** — ela disse ter "mais material pra preencher": portfólio de detalhamento, fotos de projetos, números reais (anos, projetos entregues). Substituir placeholders de `site/projetos.html` e enriquecer a bio quando chegarem.
+3. **Instagram no modelo @blessadetalha** — conteúdo de detalhamento/terceirização, leve e profissional, aplicando a identidade visual.
 
 ## O que pode esperar
 
-**Automação da produção de conteúdo digital** (trabalho futuro). Para movimentar Instagram, LinkedIn e o site com constância, será necessário automatizar a esteira de conteúdo:
-- postagens
-- copies
-- notícias / novidades do universo da arquitetura sacra
-- conteúdo temático sobre o ambiente e a cultura da arquitetura sacra
+- **Arquitetura sacra plena** — sonho de longo prazo da Ana ("ainda é um sonho distante"). Cultivar devagar via blog e conteúdo temático (história, liturgia, espaços de fé), sem vender especialidade.
+- **Automação da esteira de conteúdo** (posts, copies, temas) — candidata a skills via `/mapear-rotinas` quando a operação manual estiver rodando.
 
-Objetivo: alimentar de forma recorrente e com baixo esforço manual toda a estrutura digital. Candidata clara a virar skill(s) própria(s) via `/mapear-rotinas` quando chegar a hora. Por ora, o foco imediato continua sendo colocar o site no ar e ativar os canais manualmente.
+## Pendências registradas
+
+- ~~Logo definitiva~~ → **decidida em 18/07/2026: "Portal"** (arcos concêntricos). Falta exportar PNGs para avatar do Instagram e favicons raster.
+- Fotos reais de projetos (as atuais são placeholders temáticos, mantidas de propósito até o material da Ana chegar).
+- **Números da home são placeholder fictícios** ("+8 anos de prancheta / +40 projetos detalhados", marcados com comentário no HTML de `site/index.html`) — recolocados a pedido do usuário para compor a estrutura; substituir pelos reais assim que a Ana informar.
+- Definir preços/pacotes de terceirização (por projeto ou pacote de pranchas) — o site promete "orçamento rápido".
 
 ## Contexto com prazo
 
@@ -27,11 +31,4 @@ Objetivo: alimentar de forma recorrente e com baixo esforço manual toda a estru
 
 ---
 
-**Gargalo atual:** Captação de clientes e ativação da identidade visual no digital. A marca precisa ganhar presença e movimento no Instagram, no site e nos demais canais para atrair novas comunidades e paróquias.
-
-**Prioridades derivadas do gargalo:**
-1. Publicar a landing page (site) com o design system e a copy prontos → destino das ações de captação.
-2. Ativar o Instagram com conteúdo consistente que aplique a identidade visual (carrosséis, posts) — usar `/carrossel` a partir do `design-guide.md`.
-3. Estruturar a captação: presença orgânica + eventual mídia paga (`/anuncio-google`, Meta Ads) apontando para o site.
-
-**Tarefa recorrente a eliminar:** Produção manual de conteúdo para o digital (postagens, copies, notícias e conteúdo temático de arquitetura sacra para Instagram, LinkedIn e site). A automatizar futuramente via `/mapear-rotinas`.
+**Gargalo atual:** Captação dos primeiros clientes de terceirização (arquitetos/escritórios). O canal principal é o Instagram + site; a rede de contatos dela no mercado local é o ponto de partida.
